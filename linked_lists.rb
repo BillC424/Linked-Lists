@@ -1,6 +1,6 @@
 class LinkedList
 
-  attr_accessor :name
+  attr_accessor :head, :tail
 
   def initialize
     @head = nil
@@ -8,11 +8,14 @@ class LinkedList
   end 
 
   def append(value)
-    Node.new(value)
+    new_node = Node.new(value)
+    return @head = new_node if @head = nil 
   end
 
   def prepend(value)
-    
+    new_node = Node.new(value)
+    new_node.next_node = @head.value
+    @head = new_node
   end
 
   def size
