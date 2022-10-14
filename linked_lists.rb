@@ -10,6 +10,10 @@ class LinkedList
   def append(value)
     new_node = Node.new(value)
     return @head = new_node if @head = nil 
+    current_node = @head
+    while current_node != nil
+      current_node = curren_node.next  
+    end
   end
 
   def prepend(value)
