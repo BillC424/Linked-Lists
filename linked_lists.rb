@@ -6,20 +6,13 @@ class LinkedList
     end 
   
     def append(value)
-      #creates node
       new_node = Node.new(value)
-      #adds node to head variable if empty
       @head = new_node if @head == nil 
-      #assigns @head value to current node local variable
       current_node = @head
-      #exit method if there's only one node 
       return if current_node.next_node == nil
-      #loop to iterate through linked list 
       while current_node.next_node != nil
         current_node = current_node.next_node
-        if current_node.next_node == nil
-          current_node.next_node = new_node
-        end
+        return current_node.next_node = new_node if current_node.next_node == nil
       end
     end
   
@@ -78,14 +71,14 @@ class LinkedList
   
   list = LinkedList.new
   
-  list.append(44)
+  list.append(3)
    list
-  list.prepend(55)
+  list.prepend(2)
    list
-  list.prepend(66)
+  list.prepend(1)
    list
-  list.append(77)
-   p list
+  list.append(4)
+  p list
   
   
   
