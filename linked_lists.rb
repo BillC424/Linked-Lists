@@ -77,7 +77,14 @@ class LinkedList
     end 
   
     def find(value)
-  
+      index = 0
+      current_node = @head
+      while current_node.next_node != nil
+        return index if current_node.value == value
+        current_node = current_node.next_node
+        index += 1
+      end
+      nil
     end 
   
     def to_s
@@ -104,7 +111,7 @@ class LinkedList
   list.prepend(2)
   list.prepend(1)
   list.append(4)
-  p list.contains?(5)
+  p list.find(1)
   
   
   
