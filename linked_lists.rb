@@ -48,7 +48,13 @@ class LinkedList
     end 
   
     def at(index)
-  
+      list_index = 0
+      current_node = @head
+      while current_node.next_node != nil
+        return current_node if list_index == index
+        current_node = current_node.next_node
+        list_index += 1
+      end
     end 
   
     def pop
@@ -87,7 +93,7 @@ class LinkedList
   list.prepend(2)
   list.prepend(1)
   list.append(4)
-  p list.tail
+  p list.at(2)
   
   
   
