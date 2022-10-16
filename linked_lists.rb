@@ -88,7 +88,14 @@ class LinkedList
     end 
   
     def to_s
-  
+      string = ""
+      current_node = @head
+      while current_node.next_node != nil
+        string = string + "( #{current_node.value} ) -> "
+        current_node = current_node.next_node
+        string = string + "( #{current_node.value} ) -> nil" if current_node.next_node == nil
+      end
+      p string
     end 
   
   
@@ -111,7 +118,7 @@ class LinkedList
   list.prepend(2)
   list.prepend(1)
   list.append(4)
-  p list.find(1)
+  list.to_s
   
   
   
