@@ -58,11 +58,22 @@ class LinkedList
     end 
   
     def pop
-      
+      return if @head == nil
+      current_node = @head
+      while current_node.next_node != nil
+        current_node = current_node.next_node
+        return current_node.next_node = nil if current_node.next_node == nil
+        #Once I get to the point where I reach the last node, I need to change the next_node instance variable of the preceding node to nil
+      end
     end 
   
-    def contains?(index)
-  
+    def contains?(value)
+      current_node = @head
+      while current_node.next_node != nil
+        return true if current_node.value == value
+        current_node = current_node.next_node
+      end
+      false
     end 
   
     def find(value)
@@ -93,7 +104,7 @@ class LinkedList
   list.prepend(2)
   list.prepend(1)
   list.append(4)
-  p list.at(2)
+  p list.contains?(5)
   
   
   
