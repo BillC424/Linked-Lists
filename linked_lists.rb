@@ -2,7 +2,6 @@ class LinkedList
 
     def initialize
       @head = nil
-      @tail = nil
     end 
   
     def append(value)
@@ -40,7 +39,12 @@ class LinkedList
     end 
   
     def tail 
-      @tail
+      return @head if @head == nil
+      current_node = @head
+      while current_node.next_node != nil
+        current_node = current_node.next_node
+        return current_node if current_node.next_node == nil
+      end
     end 
   
     def at(index)
@@ -83,7 +87,7 @@ class LinkedList
   list.prepend(2)
   list.prepend(1)
   list.append(4)
-  p list.size
+  p list.tail
   
   
   
